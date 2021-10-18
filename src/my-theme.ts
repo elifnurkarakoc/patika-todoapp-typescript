@@ -10,7 +10,7 @@ const myTheme: DefaultTheme = {
         gray:"#f8f8f8",
         blue: "#00cfe8",
         indigo: "#6610f2",
-        purple:" #7367f0",
+        purple:" #473db3",
         pink: "#e83e8c",
         red: "#ea5455",
         orange: "#ff9f43",

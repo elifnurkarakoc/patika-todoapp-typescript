@@ -22,3 +22,17 @@ text-align:left;
   color: ${({ theme }) => theme.colors.primary};
 }
 `;
+
+
+export const ButtonIcon = styled.div<ButtonProps>`
+
+`;
+
+export const ButtonText = styled.div<ButtonProps>`
+
+`;
+export const ButtonContent = styled.div<ButtonProps>`
+display: flex;
+justify-content: space-around;
+align-items:center;
+`;
