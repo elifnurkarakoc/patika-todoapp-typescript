@@ -1,11 +1,19 @@
-import React from 'react';
-import './App.css';
-
+import React from "react";
+import "./App.css";
+import { Container, Header, Footer } from "./layouts";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Home } from "./pages";
 function App() {
   return (
-    <div>
-     Todo App
-    </div>
+    <Router>
+      <Container>
+        <Header />
+        <Switch>
+          <Route path="/" exact component={Home} />
+        </Switch>
+        <Footer />
+      </Container>
+    </Router>
   );
 }
 
