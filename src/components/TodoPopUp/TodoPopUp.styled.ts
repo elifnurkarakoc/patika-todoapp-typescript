@@ -6,7 +6,7 @@ interface TodoPopUpProps {
 }
 
 
-export const TodoPopUp = styled.div<TodoPopUpProps>`
+export const TodoPopUpContainer = styled.div<TodoPopUpProps>`
     position: fixed;
     width: 100%;
     height: 100%;

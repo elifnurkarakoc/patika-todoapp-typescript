@@ -1,20 +1,17 @@
 import React from "react";
 import { TodoItemList, SidebarLeft, TodoPopUp } from "../components";
-import * as styles from "./styled";
+import { ContentContainer } from "./layouts.styled";
 import { usePopUp } from "../contexts/PopUpContext";
 
 const Content = () => {
-  const {isOpen,handleClick} = usePopUp();
+  const { isOpen, handleClick } = usePopUp();
 
   return (
-    <styles.Content>
+    <ContentContainer>
       <SidebarLeft />
       <TodoItemList />
-
-    {
-      isOpen && <TodoPopUp/>
-    }
-    </styles.Content>
+      {isOpen && <TodoPopUp />}
+    </ContentContainer>
   );
 };
 

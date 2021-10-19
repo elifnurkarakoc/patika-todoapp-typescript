@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "./styles";
+import { Sidebar}from "./SidebarLeft.styled";
 import {
   TaskIcon,
   ImportantIcon,
@@ -7,14 +7,10 @@ import {
   DeletedIcon,
 } from "../../icons/icons";
 import { AddNewButton, SidebarButton } from "../index";
-import { usePopUp } from "../../contexts/PopUpContext";
 
 const SidebarLeft = () => {
-  const {isOpen,handleClick} = usePopUp();
-
   return (
-    <>
-      <styles.SidebarLeft>
+      <Sidebar>
         <AddNewButton />
         <SidebarButton text="My task" icon={<TaskIcon />} />
         <SidebarButton text="Important" icon={<ImportantIcon />} />
@@ -24,8 +20,7 @@ const SidebarLeft = () => {
         <SidebarButton text="Low" icon={TaskIcon} />
         <SidebarButton text="Medium" icon={TaskIcon} />
         <SidebarButton text="High" icon={TaskIcon} />
-      </styles.SidebarLeft>
-    </>
+      </Sidebar>
   );
 };
 

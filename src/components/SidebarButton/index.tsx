@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "./styles";
+import { Button, ButtonContent } from "./SidebarButton.styled";
 
 interface IButtonProps {
   text: string;
@@ -8,17 +8,12 @@ interface IButtonProps {
 }
 const SidebarButton: React.FC<IButtonProps> = ({ text, icon }) => {
   return (
-    <>
-      <styles.Button>
-        <styles.ButtonContent>
+    <Button>
+      <ButtonContent>
         {icon}
         {text}
-        
-        </styles.ButtonContent>
-        {/* <styles.ButtonIcon>{icon}</styles.ButtonIcon>
-        <styles.ButtonText>{text}</styles.ButtonText> */}
-      </styles.Button>
-    </>
+      </ButtonContent>
+    </Button>
   );
 };
 

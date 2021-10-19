@@ -1,12 +1,7 @@
-import * as styles from "./styled"
-
+import { HeaderContainer } from "./layouts.styled";
 
 const Header = () => {
-    return (
-        <styles.Header>
-            Todo App
-        </styles.Header>
-    )
-}
+  return <HeaderContainer>Todo App</HeaderContainer>;
+};
 
 export default Header;

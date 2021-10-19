@@ -1,6 +1,6 @@
 import React from "react";
 import { TodoItem } from "../index";
-import * as styles from "./styles";
+import { TodoItemListContainer } from "./TodoItemList.styled";
 
 const todoitems = [
   {
@@ -25,15 +25,11 @@ const todoitems = [
 
 const TodoItemList = () => {
   return (
-    <styles.TodoItemList>
+    <TodoItemListContainer>
       {todoitems.map((todo, index) => (
         <TodoItem {...todo} key={index} />
       ))}
-      {/* <TodoItem />
-      <TodoItem />
-      <TodoItem />
-      <TodoItem /> */}
-    </styles.TodoItemList>
+    </TodoItemListContainer>
   );
 };
 

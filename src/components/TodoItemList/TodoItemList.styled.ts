@@ -6,6 +6,6 @@ interface TodoItemListProps {
 }
 
 
-export const TodoItemList = styled.div<TodoItemListProps>`
+export const TodoItemListContainer = styled.div<TodoItemListProps>`
 margin-left: 23%;
 `;

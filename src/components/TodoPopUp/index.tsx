@@ -1,29 +1,45 @@
 import React from "react";
-import * as styles from "./styles";
+import {
+  TodoPopUpContainer,
+  TodoPopUpContent,
+  Header,
+  CloseButton,
+  ImportedButton,
+  Form,
+  Input,
+  Select,
+  TextArea,
+  Button,
+} from "./TodoPopUp.styled";
 import { usePopUp } from "../../contexts/PopUpContext";
-import {ImportedIcon} from "../../icons/icons"
-import styled from "styled-components";
+import { ImportedIcon } from "../../icons/icons";
+
 const TodoPopUp = () => {
   const { isOpen, handleClick } = usePopUp();
   return (
-    <styles.TodoPopUp>
-      <styles.TodoPopUpContent>
-          <styles.Header>Add Task<styles.ImportedButton><ImportedIcon/></styles.ImportedButton></styles.Header>
-        <styles.CloseButton onClick={handleClick}>x</styles.CloseButton>
-        <styles.Form>
-          <styles.Input type="text" placeholder="Task Title"></styles.Input>
-          <styles.Input type="date" placeholder="Date"></styles.Input>
-          <styles.Select name="tags">
+    <TodoPopUpContainer>
+      <TodoPopUpContent>
+        <Header>
+          Add Task
+          <ImportedButton>
+            <ImportedIcon />
+          </ImportedButton>
+        </Header>
+        <CloseButton onClick={handleClick}>x</CloseButton>
+        <Form>
+          <Input type="text" placeholder="Task Title"></Input>
+          <Input type="date" placeholder="Date"></Input>
+          <Select name="tags">
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
-          </styles.Select>
-          <styles.TextArea placeholder="Description"></styles.TextArea>
-          <styles.Button>Add</styles.Button>
-          <styles.Button>Reset</styles.Button>
-        </styles.Form>
-      </styles.TodoPopUpContent>
-    </styles.TodoPopUp>
+          </Select>
+          <TextArea placeholder="Description"></TextArea>
+          <Button>Add</Button>
+          <Button>Reset</Button>
+        </Form>
+      </TodoPopUpContent>
+    </TodoPopUpContainer>
   );
 };
 

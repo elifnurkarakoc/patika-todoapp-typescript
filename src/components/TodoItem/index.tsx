@@ -1,20 +1,34 @@
-import React from 'react'
-import * as styles from "./styles"
-import { TagKeys ,TodoProps } from '../../types'
+import React from "react";
+import {
+  Card,
+  CardContent,
+  TodoText,
+  Date,
+  Tags,
+  CheckBox,
+} from "./TodoItem.styled";
+import { TagKeys, TodoProps } from "../../types";
 
-const TodoItem:React.FC<TodoProps> = ({title,date,tag,description,completed,deleted, important}) => {
-    console.log(title)
-    return (
-        <styles.Card>
-            <styles.CardContent>
-            <styles.CheckBox type="checkbox"/>
-            <styles.TodoText>{title}</styles.TodoText>
-            <styles.Date>{date.toDateString()}</styles.Date>
-            <styles.Tags>{tag}</styles.Tags>
-            
-            </styles.CardContent>
-        </styles.Card>
-    )
-}
+const TodoItem: React.FC<TodoProps> = ({
+  title,
+  date,
+  tag,
+  description,
+  completed,
+  deleted,
+  important,
+}) => {
+  console.log(title);
+  return (
+    <Card>
+      <CardContent>
+        <CheckBox type="checkbox" />
+        <TodoText>{title}</TodoText>
+        <Date>{date.toDateString()}</Date>
+        <Tags>{tag}</Tags>
+      </CardContent>
+    </Card>
+  );
+};
 
-export default TodoItem
+export default TodoItem;

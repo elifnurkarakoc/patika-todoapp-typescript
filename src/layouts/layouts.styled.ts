@@ -5,7 +5,7 @@ interface LayoutProps {
   theme: DefaultTheme;
 }
 
-export const Header = styled.h1<LayoutProps>`
+export const HeaderContainer = styled.h1<LayoutProps>`
   margin:3;
   padding:2px;
   text-align:center;
@@ -16,7 +16,7 @@ export const Header = styled.h1<LayoutProps>`
  // border:1px solid ${({ theme }) => theme.colors.border};
 `;
 
-export const Content = styled.div<LayoutProps>`
+export const ContentContainer = styled.div<LayoutProps>`
 height:100vh;
 width: 800px;
 background-color:${({ theme }) => theme.colors.white};
@@ -76,7 +76,7 @@ flex-wrap: wrap;
 // }
 // `;
 
-export const Footer = styled.footer<LayoutProps>`
+export const FooterContainer = styled.footer<LayoutProps>`
 flex-shrink: 0;
 color:${({ theme }) => theme.colors.secondary};
 `;

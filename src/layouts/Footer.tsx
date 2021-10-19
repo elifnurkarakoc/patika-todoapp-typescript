@@ -1,8 +1,10 @@
 import React from "react";
-import * as styles from "./styled";
+import { FooterContainer } from "./layouts.styled";
 const Footer = () => {
   return (
-    <styles.Footer>Designed and developed by Elif Nur Karakoç.</styles.Footer>
+    <FooterContainer>
+      Designed and developed by Elif Nur Karakoç.
+    </FooterContainer>
   );
 };
 

@@ -5,7 +5,7 @@ interface SidebarProps {
   theme: DefaultTheme;
 }
 
-export const SidebarLeft = styled.div<SidebarProps>`
+export const Sidebar = styled.div<SidebarProps>`
 background-color:${({ theme }) => theme.colors.white};
 color:${({ theme }) => theme.colors.secondary};
 //border-radius: 7px 7px 7px 7px;
