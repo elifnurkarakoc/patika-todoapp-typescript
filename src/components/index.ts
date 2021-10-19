@@ -1,3 +1,6 @@
 export {default as TodoItem} from "./TodoItem"
 export {default as AddNewButton} from "./AddNewButton"
-export {default as Button} from "./Button"
+export {default as SidebarButton} from "./SidebarButton"
+export {default as SidebarLeft} from "./SidebarLeft"
+export {default as TodoItemList} from "./TodoItemList"
+export {default as TodoPopUp} from "./TodoPopUp"

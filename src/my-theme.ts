@@ -8,7 +8,7 @@ const myTheme: DefaultTheme = {
         secondary: "#82868b",
         white:"#FFFFFF",
         gray:"#f8f8f8",
-        blue: "#00cfe8",
+        blue: "#170B3B",
         indigo: "#6610f2",
         purple:" #473db3",
         pink: "#e83e8c",

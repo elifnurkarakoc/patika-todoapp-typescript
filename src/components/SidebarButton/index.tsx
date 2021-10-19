@@ -6,7 +6,7 @@ interface IButtonProps {
   icon: JSX.Element | JSX.IntrinsicElements | any;
   //onClick?: () => void;
 }
-const Button: React.FC<IButtonProps> = ({ text, icon }) => {
+const SidebarButton: React.FC<IButtonProps> = ({ text, icon }) => {
   return (
     <>
       <styles.Button>
@@ -22,4 +22,4 @@ const Button: React.FC<IButtonProps> = ({ text, icon }) => {
   );
 };
 
-export default Button;
+export default SidebarButton;
