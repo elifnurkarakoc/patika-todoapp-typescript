@@ -17,6 +17,7 @@ import { useFormik } from "formik";
 import { ITodoItemProps } from "../../types";
 import { validationSchema } from "./validations";
 import { useTodoItem } from "../../contexts/TodoItemContext";
+import { Error } from "..";
 
 const TodoPopUp: React.FC<ITodoItemProps> = ({
   title,
@@ -29,8 +30,8 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
 }) => {
   const { isOpen, handleClick } = usePopUp();
   const { addTodoItem, todoItems, todoItem, updateTodoItem } = useTodoItem();
-  let defaultTodoItem ;
-  if(title){
+  let defaultTodoItem;
+  if (title) {
     defaultTodoItem = {
       title: title,
       date: date,
@@ -40,8 +41,7 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
       completed: completed,
       deleted: deleted,
     };
-  }
-  else{
+  } else {
     defaultTodoItem = {
       title: "",
       date: new Date().getDate(),
@@ -50,9 +50,9 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
       important: false,
       completed: false,
       deleted: false,
-    }
+    };
   }
- 
+
   const {
     values,
     handleSubmit,
@@ -65,6 +65,7 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
     initialValues: defaultTodoItem,
     onSubmit: (values, bag) => {
       const tempTodoItem: ITodoItemProps = {
+        id:todoItem.id||8,
         title: values.title,
         date: new Date(values.date),
         tag: values.tag,
@@ -74,12 +75,14 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
         deleted: false,
       };
       if (todoItem.title) {
-       
         updateTodoItem(tempTodoItem);
-        console.log("update",tempTodoItem);
+        console.log("update", tempTodoItem);
+        handleClick({} as ITodoItemProps);
+      } else {
+        addTodoItem(tempTodoItem);
+        handleClick({} as ITodoItemProps);
+        console.log("add", tempTodoItem);
       }
-      addTodoItem(tempTodoItem);
-      console.log("add",tempTodoItem);
     },
     validationSchema,
   });
@@ -96,14 +99,15 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
     <TodoPopUpContainer>
       <TodoPopUpContent>
         <Header>
-          Add Task
-          <ImportedButton
+          {title ? "Update Task" : "Add Task"}
+
+          {/* <ImportedButton
             important={importantValue}
             onClick={() => setImportantValues(importantValue)}
           >
             <ImportedIcon />
             imported
-          </ImportedButton>
+          </ImportedButton> */}
         </Header>
         <CloseButton onClick={() => handleClick({} as ITodoItemProps)}>
           x
@@ -117,6 +121,7 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
             onChange={handleChange}
             onBlur={handleBlur}
           ></Input>
+          {errors.title && touched.title && <Error message={errors.title} />}
           <Input
             type="date"
             name="date"
@@ -125,6 +130,7 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
             onChange={handleChange}
             onBlur={handleBlur}
           ></Input>
+          {errors.date && touched.date && <Error message={errors.date} />}
           <Select
             name="tag"
             value={values.tag}
@@ -135,6 +141,7 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
             <option value="Medium">Medium</option>
             <option value="High">High</option>
           </Select>
+          {errors.tag && touched.tag && <Error message={errors.tag} />}
           <TextArea
             name="description"
             placeholder="Description"
@@ -142,10 +149,18 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
             onChange={handleChange}
             onBlur={handleBlur}
           ></TextArea>
-          <Button type="submit">Add</Button>
-          <Button type="button" onClick={handleReset}>
-            Reset
-          </Button>
+          {errors.description && touched.description && (
+            <Error message={errors.description} />
+          )}
+          <Button type="submit">{title ? "Update" : "Add"}</Button>
+
+          {title ? (
+            <></>
+          ) : (
+            <Button type="button" onClick={handleReset}>
+              Reset
+            </Button>
+          )}
         </Form>
       </TodoPopUpContent>
     </TodoPopUpContainer>

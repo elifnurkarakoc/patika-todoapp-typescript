@@ -1,14 +1,7 @@
 import styled, { css } from "styled-components";
-import { DefaultTheme } from "styled-components";
+import { IStyledProps,ITagsProps } from "../../types";
 
-interface TodoItemProps {
-  theme: DefaultTheme;
-}
-interface TagsProps {
-  theme: DefaultTheme;
-  colorTag: string
-}
-export const Card = styled.div<TodoItemProps>`
+export const Card = styled.div<IStyledProps>`
   padding-top:20px;
   margin-top:1px;
   margin-bottom: 20px;
@@ -18,7 +11,7 @@ export const Card = styled.div<TodoItemProps>`
   //border-bottom:1px solid ${({ theme }) => theme.colors.secondary};
  `;
 
-export const CardContent = styled.div<TodoItemProps>`
+export const CardContent = styled.div<IStyledProps>`
 display: block;
   position: relative;
   padding-left: 35px;
@@ -33,7 +26,7 @@ display: block;
   justify-content: space-between;
 `;
 
-export const CheckBox = styled.input <TodoItemProps>`
+export const CheckBox = styled.input <IStyledProps>`
   position: absolute;
   top: 0;
   left: 0;
@@ -46,7 +39,7 @@ export const CheckBox = styled.input <TodoItemProps>`
  `;
 
 
-export const TodoText = styled.p<TodoItemProps>`
+export const TodoText = styled.p<IStyledProps>`
 font-size:16px;
 color:${({ theme }) => theme.colors.secondary};
 &:hover {
@@ -54,7 +47,7 @@ color:${({ theme }) => theme.colors.secondary};
 }
 `;
 
-export const Tags = styled.button<TagsProps>`
+export const Tags = styled.button<ITagsProps>`
     display: inline-block;
     font-size: 55%;
     font-weight: 600;
@@ -81,12 +74,12 @@ export const Tags = styled.button<TagsProps>`
   ` }
 `;
 
-export const Date = styled.div<TodoItemProps>`
+export const Date = styled.div<IStyledProps>`
 font-size:14px;
 color:${({ theme }) => theme.colors.secondary};
 `;
 
-export const UpdateButton = styled.button<TodoItemProps>`
+export const UpdateButton = styled.button<IStyledProps>`
 font-size:15px;
 padding: 6px;
 margin:15px;
@@ -107,7 +100,7 @@ text-align:left;
 `;
 
 
-export const ImportantButton = styled.button<TodoItemProps>`
+export const ImportantButton = styled.button<IStyledProps>`
 font-size:15px;
 padding: 6px;
 margin:15px;
@@ -127,7 +120,7 @@ text-align:left;
 
 `;
 
-export const CardLeft = styled.div<TodoItemProps>`
+export const CardLeft = styled.div<IStyledProps>`
 `;
-export const CardRight = styled.div<TodoItemProps>`
+export const CardRight = styled.div<IStyledProps>`
 `;

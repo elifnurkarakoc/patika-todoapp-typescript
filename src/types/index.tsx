@@ -1,3 +1,6 @@
+import styled from "styled-components";
+import { DefaultTheme } from "styled-components";
+
 export type TagKeys = "Low" | "Medium" | "High";
 
 export interface UserProps {
@@ -7,6 +10,7 @@ export interface UserProps {
 }
 
 export interface ITodoItemProps {
+  id:number;
   title: string;
   date: Date;
   tag: string; //"Low" | "Medium" | "High";
@@ -43,4 +47,17 @@ export interface IButtonProps {
   icon: JSX.Element | JSX.IntrinsicElements | any;
   handleClick: () => void;
   handleTag?: (selected: string) => ITodoItemProps[];
+}
+
+export interface IStyledProps{
+  theme: DefaultTheme;
+}
+
+export interface ITagsProps {
+  theme: DefaultTheme;
+  colorTag: string
+}
+export interface IImportedButtonProps {
+  theme: DefaultTheme;
+  important: boolean;
 }

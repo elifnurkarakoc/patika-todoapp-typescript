@@ -3,6 +3,7 @@ import { ITodoItemContext, ITodoItemProps } from "../types";
 
 const defaultTodoItems = [
   {
+    id: 1,
     title: "Todo Item1 completed important",
     date: new Date(),
     tag: "Low",
@@ -12,6 +13,7 @@ const defaultTodoItems = [
     deleted: false,
   },
   {
+    id: 2,
     title: "Todo Item2 completed deleted",
     date: new Date(),
     tag: "Low",
@@ -21,6 +23,7 @@ const defaultTodoItems = [
     deleted: true,
   },
   {
+    id: 3,
     title: "Todo Item2 completed",
     date: new Date(),
     tag: "Medium",
@@ -30,6 +33,7 @@ const defaultTodoItems = [
     deleted: false,
   },
   {
+    id: 4,
     title: "Todo Item2 active deleted",
     date: new Date(),
     tag: "High",
@@ -39,6 +43,7 @@ const defaultTodoItems = [
     deleted: true,
   },
   {
+    id: 5,
     title: "Todo Item2 active",
     date: new Date(),
     tag: "High",
@@ -48,6 +53,7 @@ const defaultTodoItems = [
     deleted: false,
   },
   {
+    id: 6,
     title: "Todo Item2 active important",
     date: new Date(),
     tag: "High",
@@ -62,6 +68,7 @@ const defaultTodoItemContext = {
 };
 
 const defaultTodoItem: ITodoItemProps = {
+  id:33,
   title: "",
   date: new Date(),
   tag: "",
@@ -85,8 +92,11 @@ export const TodoItemProvider: FC = ({ children }) => {
     setTodoItems([...todoItems, todoItem]);
   };
   const updateTodoItem = (todoItem: ITodoItemProps) => {
-    const index = todoItems.findIndex((t) => t.title === todoItem.title);
+    const index = todoItems.findIndex((t) => t.id === todoItem.id);
     todoItems[index] = todoItem;
+    console.log(todoItems);
+    setTodoItems(todoItems);
+    console.log("after set", todoItems);
   };
   //   const getSelectedTodoItems = (selectedFeature: string) => {
   //     var tempArray: ITodoItemProps[] = todoItems;

@@ -1,11 +1,8 @@
 import styled from "styled-components";
-import { DefaultTheme } from "styled-components";
-
-interface TodoItemListProps {
-  theme: DefaultTheme;
-}
+import { IStyledProps } from "../../types";
 
 
-export const TodoItemListContainer = styled.div<TodoItemListProps>`
+export const TodoItemListContainer = styled.div<IStyledProps>`
 margin-left: 23%;
+width: auto;
 `;

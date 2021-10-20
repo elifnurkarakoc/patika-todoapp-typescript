@@ -1,11 +1,7 @@
 import styled from "styled-components";
-import { DefaultTheme } from "styled-components";
+import { IStyledProps } from "../../types";
 
-interface ButtonProps {
-  theme: DefaultTheme;
-}
-
-export const Button = styled.button<ButtonProps>`
+export const Button = styled.button<IStyledProps>`
 font-size:15px;
 padding: 3px;
 margin:4px;
@@ -23,16 +19,16 @@ text-align:left;
 }
 `;
 
-export const ButtonContent = styled.div<ButtonProps>`
+export const ButtonContent = styled.div<IStyledProps>`
 display: flex;
 /* justify-content: space-around;
 align-items:center; */
 `;
-export const ButtonIcon = styled.div<ButtonProps>`
+export const ButtonIcon = styled.div<IStyledProps>`
 float: left;
 
 `;
-export const ButtonText = styled.div<ButtonProps>`
+export const ButtonText = styled.div<IStyledProps>`
 margin-left: 20px;;
 
 `;

@@ -1,11 +1,8 @@
 import styled from "styled-components";
-import { DefaultTheme } from "styled-components";
+import { IStyledProps } from "../../types";
 
-interface ButtonProps {
-  theme: DefaultTheme;
-}
 
-export const Button = styled.button<ButtonProps>`
+export const Button = styled.button<IStyledProps>`
 font-size:18px;
 justify-content:center;
 align-items:center;
@@ -16,6 +13,7 @@ color:${({ theme }) => theme.colors.white};
 border-radius: 7px 7px 7px 7px;
 border: 1px solid transparent;
 padding:10px;
+margin-top: 50px;
 margin-bottom: 50px;
 cursor: pointer;
 &:hover {

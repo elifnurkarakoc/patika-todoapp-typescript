@@ -1,12 +1,8 @@
 import styled, { css } from "styled-components";
-import { DefaultTheme } from "styled-components";
-
-interface TodoPopUpProps {
-  theme: DefaultTheme;
-}
+import { IStyledProps, IImportedButtonProps } from "../../types";
 
 
-export const TodoPopUpContainer = styled.div<TodoPopUpProps>`
+export const TodoPopUpContainer = styled.div<IStyledProps>`
     position: fixed;
     width: 100%;
     height: 100%;
@@ -18,7 +14,7 @@ export const TodoPopUpContainer = styled.div<TodoPopUpProps>`
     background-color: rgba(0, 0, 0, 0.796);
 `;
 
-export const TodoPopUpContent = styled.div<TodoPopUpProps>`
+export const TodoPopUpContent = styled.div<IStyledProps>`
 height: 525px;
 position: absolute;
 left: 25%;
@@ -31,7 +27,7 @@ float: left;
 background: white;
 `;
 
-export const CloseButton = styled.button<TodoPopUpProps>`
+export const CloseButton = styled.button<IStyledProps>`
 position: fixed;
 right: 26%;
 font-size: 26px;
@@ -44,7 +40,7 @@ border:none;
   }
 `;
 
-export const Input = styled.input<TodoPopUpProps>`
+export const Input = styled.input<IStyledProps>`
 padding:5px;
 margin:5px;
 height:40px;
@@ -52,7 +48,7 @@ font-size:18px;
 margin-bottom: 10px;
 `;
 
-export const TextArea = styled.textarea<TodoPopUpProps>`
+export const TextArea = styled.textarea<IStyledProps>`
 padding:5px;
 margin:5px;
 height:80px;
@@ -60,13 +56,13 @@ font-size:18px;
 margin-bottom:40px;
 `;
 
-export const Select = styled.select<TodoPopUpProps>`
+export const Select = styled.select<IStyledProps>`
 padding:5px;
 margin:5px;
 font-size:18px;
 `;
 
-export const Form = styled.form<TodoPopUpProps>`
+export const Form = styled.form<IStyledProps>`
 left: 25%;
 right: 25%;
 top: 25%;
@@ -76,7 +72,7 @@ display:flex;
 flex-direction:column;
 `;
 
-export const Button = styled.button<TodoPopUpProps>`
+export const Button = styled.button<IStyledProps>`
 font-size:18px;
 justify-content:center;
 align-items:center;
@@ -95,7 +91,7 @@ cursor: pointer;
 
 `;
 
-export const Header = styled.div<TodoPopUpProps>`
+export const Header = styled.div<IStyledProps>`
 
 position: fixed;
 padding:10px;
@@ -109,11 +105,8 @@ border:none;
   }
 `;
 
-interface ImportedButtonProps {
-  theme: DefaultTheme;
-  important: boolean;
-}
-export const ImportedButton = styled.button<ImportedButtonProps>`
+
+export const ImportedButton = styled.button<IImportedButtonProps>`
 
 background-color:${({ theme }) => theme.colors.white};
 border:none;
