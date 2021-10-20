@@ -1,32 +1,14 @@
 import React from "react";
+import { useTodoItem } from "../../contexts/TodoItemContext";
 import { TodoItem } from "../index";
 import { TodoItemListContainer } from "./TodoItemList.styled";
 
-const todoitems = [
-  {
-    title: "Todo Item1 fdsfsdgdgfhyujuykuykuıkuıkıkuıksdfsdfsdfsd",
-    date: new Date(),
-    tag: "Low",
-    description: "First todo item content",
-    important: false,
-    completed: true,
-    deleted: false,
-  },
-  {
-    title: "Todo Item2",
-    date: new Date(),
-    tag: "Low",
-    description: "Second todo item content",
-    important: false,
-    completed: true,
-    deleted: false,
-  },
-];
+const TodoItemList:React.FC = () => {
+  const { todoItems,selectedTodoItems } = useTodoItem();
 
-const TodoItemList = () => {
-  return (
+  return(
     <TodoItemListContainer>
-      {todoitems.map((todo, index) => (
+      {selectedTodoItems.map((todo, index) => (
         <TodoItem {...todo} key={index} />
       ))}
     </TodoItemListContainer>

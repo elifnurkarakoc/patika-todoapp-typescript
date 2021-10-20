@@ -1,10 +1,13 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { DefaultTheme } from "styled-components";
 
 interface TodoItemProps {
   theme: DefaultTheme;
 }
-
+interface TagsProps {
+  theme: DefaultTheme;
+  colorTag: string
+}
 export const Card = styled.div<TodoItemProps>`
   padding-top:20px;
   margin-top:1px;
@@ -48,7 +51,8 @@ color:${({ theme }) => theme.colors.secondary};
   color: ${({ theme }) => theme.colors.primary};
 }
 `;
-export const Tags = styled.span<TodoItemProps>`
+
+export const Tags = styled.button<TagsProps>`
     display: inline-block;
     font-size: 55%;
     font-weight: 600;
@@ -61,6 +65,18 @@ export const Tags = styled.span<TodoItemProps>`
     padding:5px;
     border-radius:  7px 7px 7px 7px;
     border:1px solid ${({ theme }) => theme.colors.primary};
+    ${props => props.colorTag === "Low" && css`
+    background-color:${({ theme }) => theme.colors.green};
+    border:1px solid ${({ theme }) => theme.colors.green};
+  ` }
+  ${props => props.colorTag === "Medium" && css`
+    background-color:${({ theme }) => theme.colors.orange};
+    border:1px solid ${({ theme }) => theme.colors.orange};
+  ` }
+  ${props => props.colorTag === "High" && css`
+    background-color:${({ theme }) => theme.colors.red};
+    border:1px solid ${({ theme }) => theme.colors.red};
+  ` }
 `;
 
 export const Date = styled.div<TodoItemProps>`

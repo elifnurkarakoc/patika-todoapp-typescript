@@ -17,7 +17,7 @@ export const HeaderContainer = styled.h1<LayoutProps>`
 `;
 
 export const ContentContainer = styled.div<LayoutProps>`
-height:100vh;
+//height:100vh;
 width: 800px;
 background-color:${({ theme }) => theme.colors.white};
 color:${({ theme }) => theme.colors.secondary};
@@ -26,7 +26,6 @@ border:1px solid ${({ theme }) => theme.colors.border};
 display:flex;
 flex-direction: column;
 flex-wrap: wrap;
-
 `;
 
 // export const SidebarLeftButton = styled.button<LayoutProps>`

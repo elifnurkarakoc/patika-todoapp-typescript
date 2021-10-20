@@ -7,9 +7,9 @@ import {
   Tags,
   CheckBox,
 } from "./TodoItem.styled";
-import { TagKeys, TodoProps } from "../../types";
+import { TagKeys, ITodoItemProps } from "../../types";
 
-const TodoItem: React.FC<TodoProps> = ({
+const TodoItem: React.FC<ITodoItemProps> = ({
   title,
   date,
   tag,
@@ -25,7 +25,7 @@ const TodoItem: React.FC<TodoProps> = ({
         <CheckBox type="checkbox" />
         <TodoText>{title}</TodoText>
         <Date>{date.toDateString()}</Date>
-        <Tags>{tag}</Tags>
+        <Tags colorTag={tag} >{tag}</Tags>
       </CardContent>
     </Card>
   );

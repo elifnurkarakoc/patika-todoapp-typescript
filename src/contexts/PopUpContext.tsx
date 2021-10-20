@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, FC } from "react";
+
 interface IPopUpContext{
     isOpen:boolean;
     handleClick?:() => void;
