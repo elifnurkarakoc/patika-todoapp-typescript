@@ -24,7 +24,8 @@ export interface IPopUpContext {
 export interface ITodoItemContext {
   todoItems: ITodoItemProps[];
   selectedTodoItems: ITodoItemProps[];
-  addTodoItem: (todo: ITodoItemProps) => void ;
+  addTodoItem: (todo: ITodoItemProps) => void;
+  updateTodoItem: (todo: ITodoItemProps) => void;
   // getSelectedTodoItems:(selected:string)  => void ;
   getTodoItems: () => void;
   completedTodoItems: () => void;
@@ -34,6 +35,8 @@ export interface ITodoItemContext {
   lowTagTodoItems: () => void;
   mediumTagTodoItems: () => void;
   highTagTodoItems: () => void;
+  todoItem: ITodoItemProps;
+  setTodoItem:React.Dispatch<React.SetStateAction<ITodoItemProps>>;
 }
 export interface IButtonProps {
   text: string;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -6,26 +6,34 @@ import {
   Date,
   Tags,
   CheckBox,
+  UpdateButton,
+  CardLeft,
+  CardRight,
+  ImportantButton,
 } from "./TodoItem.styled";
 import { TagKeys, ITodoItemProps } from "../../types";
-
-const TodoItem: React.FC<ITodoItemProps> = ({
-  title,
-  date,
-  tag,
-  description,
-  completed,
-  deleted,
-  important,
-}) => {
-  console.log(title);
+import { usePopUp } from "../../contexts/PopUpContext";
+import { useTodoItem } from "../../contexts/TodoItemContext";
+const TodoItem: React.FC<ITodoItemProps> = (todo:ITodoItemProps) => {
+  console.log(todo.title);
+  const {isOpen,handleClick} = usePopUp();
+  const { todoItem, setTodoItem } = useTodoItem();
+  const updateClick = ()=>{
+    handleClick(todo);
+  }
   return (
     <Card>
       <CardContent>
-        <CheckBox type="checkbox" />
-        <TodoText>{title}</TodoText>
-        <Date>{date.toDateString()}</Date>
-        <Tags colorTag={tag} >{tag}</Tags>
+        <CardLeft>
+          <CheckBox type="checkbox" />
+          <TodoText>{todo.title}</TodoText>
+          <Date>{todo.date.toDateString()}</Date>
+          <Tags colorTag={todo.tag}>{todo.tag}</Tags>
+        </CardLeft>
+        <CardRight>
+          <UpdateButton onClick={() =>handleClick(todo)}>Update</UpdateButton>
+          <ImportantButton>Important</ImportantButton>
+        </CardRight>
       </CardContent>
     </Card>
   );

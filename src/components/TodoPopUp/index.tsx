@@ -18,18 +18,41 @@ import { ITodoItemProps } from "../../types";
 import { validationSchema } from "./validations";
 import { useTodoItem } from "../../contexts/TodoItemContext";
 
-const TodoPopUp = () => {
+const TodoPopUp: React.FC<ITodoItemProps> = ({
+  title,
+  date,
+  tag,
+  description,
+  completed,
+  deleted,
+  important,
+}) => {
   const { isOpen, handleClick } = usePopUp();
-  const { addTodoItem,todoItems } = useTodoItem();
-  const defaultTodoItem = {
-    title: "",
-    date: new Date(),
-    tag: "",
-    description: "",
-    important: false,
-    completed: false,
-    deleted: false,
-  };
+  const { addTodoItem, todoItems, todoItem, updateTodoItem } = useTodoItem();
+  let defaultTodoItem ;
+  if(title){
+    defaultTodoItem = {
+      title: title,
+      date: date,
+      tag: tag,
+      description: description,
+      important: important,
+      completed: completed,
+      deleted: deleted,
+    };
+  }
+  else{
+    defaultTodoItem = {
+      title: "",
+      date: new Date().getDate(),
+      tag: "",
+      description: "",
+      important: false,
+      completed: false,
+      deleted: false,
+    }
+  }
+ 
   const {
     values,
     handleSubmit,
@@ -39,17 +62,9 @@ const TodoPopUp = () => {
     errors,
     touched,
   } = useFormik({
-    initialValues: {
-      title: "",
-      date: "",
-      tag: "",
-      description: "",
-      important: false,
-      completed: false,
-      deleted: false,
-    },
+    initialValues: defaultTodoItem,
     onSubmit: (values, bag) => {
-      const defaultTodoItem: ITodoItemProps = {
+      const tempTodoItem: ITodoItemProps = {
         title: values.title,
         date: new Date(values.date),
         tag: values.tag,
@@ -58,9 +73,13 @@ const TodoPopUp = () => {
         completed: false,
         deleted: false,
       };
-      console.log(defaultTodoItem);
-      addTodoItem(defaultTodoItem);
-      console.log(todoItems);
+      if (todoItem.title) {
+       
+        updateTodoItem(tempTodoItem);
+        console.log("update",tempTodoItem);
+      }
+      addTodoItem(tempTodoItem);
+      console.log("add",tempTodoItem);
     },
     validationSchema,
   });
@@ -86,7 +105,9 @@ const TodoPopUp = () => {
             imported
           </ImportedButton>
         </Header>
-        <CloseButton onClick={handleClick}>x</CloseButton>
+        <CloseButton onClick={() => handleClick({} as ITodoItemProps)}>
+          x
+        </CloseButton>
         <Form onSubmit={handleSubmit}>
           <Input
             type="text"
@@ -100,7 +121,7 @@ const TodoPopUp = () => {
             type="date"
             name="date"
             placeholder="Date"
-            value={values.date}
+            value={values.date.toString()}
             onChange={handleChange}
             onBlur={handleBlur}
           ></Input>

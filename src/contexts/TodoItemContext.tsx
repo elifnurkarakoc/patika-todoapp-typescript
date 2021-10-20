@@ -60,6 +60,17 @@ const defaultTodoItems = [
 const defaultTodoItemContext = {
   todoItems: defaultTodoItems,
 };
+
+const defaultTodoItem: ITodoItemProps = {
+  title: "",
+  date: new Date(),
+  tag: "",
+  description: "",
+  important: false,
+  completed: false,
+  deleted: false,
+};
+
 const TodoItemContext = createContext<ITodoItemContext>({} as ITodoItemContext);
 
 export const TodoItemProvider: FC = ({ children }) => {
@@ -69,11 +80,14 @@ export const TodoItemProvider: FC = ({ children }) => {
   const [selectedTodoItems, setSelectedTodoItems] = useState<ITodoItemProps[]>(
     defaultTodoItemContext.todoItems
   );
-
+  const [todoItem, setTodoItem] = useState<ITodoItemProps>(defaultTodoItem);
   const addTodoItem = (todoItem: ITodoItemProps) => {
     setTodoItems([...todoItems, todoItem]);
   };
-
+  const updateTodoItem = (todoItem: ITodoItemProps) => {
+    const index = todoItems.findIndex((t) => t.title === todoItem.title);
+    todoItems[index] = todoItem;
+  };
   //   const getSelectedTodoItems = (selectedFeature: string) => {
   //     var tempArray: ITodoItemProps[] = todoItems;
   //     if (selectedFeature === "completed") {
@@ -93,10 +107,10 @@ export const TodoItemProvider: FC = ({ children }) => {
   //     }
   //     setSelectedTodoItems(tempArray);
   //   };
-  const getTodoItems = () =>{
+  const getTodoItems = () => {
     var tempArray = todoItems.filter((todoItem) => !todoItem.deleted);
     setSelectedTodoItems(tempArray);
-  }
+  };
   const completedTodoItems = () => {
     var tempArray = todoItems.filter((todoItem) => todoItem.completed);
     setSelectedTodoItems(tempArray);
@@ -110,7 +124,9 @@ export const TodoItemProvider: FC = ({ children }) => {
     setSelectedTodoItems(tempArray);
   };
   const activeTodoItems = () => {
-    var tempArray = todoItems.filter((todoItem) => !todoItem.completed && !todoItem.deleted );
+    var tempArray = todoItems.filter(
+      (todoItem) => !todoItem.completed && !todoItem.deleted
+    );
     setSelectedTodoItems(tempArray);
   };
   const lowTagTodoItems = () => {
@@ -130,6 +146,7 @@ export const TodoItemProvider: FC = ({ children }) => {
   const values = {
     todoItems,
     addTodoItem,
+    updateTodoItem,
     selectedTodoItems,
     // getSelectedTodoItems,
     getTodoItems,
@@ -140,6 +157,8 @@ export const TodoItemProvider: FC = ({ children }) => {
     lowTagTodoItems,
     mediumTagTodoItems,
     highTagTodoItems,
+    todoItem,
+    setTodoItem,
   };
   return (
     <TodoItemContext.Provider value={values}>

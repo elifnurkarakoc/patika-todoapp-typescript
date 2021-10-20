@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
-import {Button} from "./AddNewButton.styled";
+import { Button } from "./AddNewButton.styled";
 import { usePopUp } from "../../contexts/PopUpContext";
-
-interface IButtonProps{
-    handleClick: () => void;
+import { ITodoItemProps } from "../../types/index";
+interface IButtonProps {
+  handleClick: () => void;
 }
-const AddNewButton:React.FC = () => {
-  const {isOpen,handleClick} = usePopUp();
-  
+const AddNewButton: React.FC = () => {
+  const { isOpen, handleClick } = usePopUp();
+
   return (
-    <Button onClick={handleClick} >Add New Task</Button>
+    <Button onClick={() => handleClick({} as ITodoItemProps)}>
+      Add New Task
+    </Button>
   );
 };
 

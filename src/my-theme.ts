@@ -16,7 +16,8 @@ const myTheme: DefaultTheme = {
         orange: "#ff9f43",
         yellow: "#ffc107",
         border:"#ebe9f1",
-        green: "#28c76f"
+        green: "#28c76f",
+        info:"#00cfe8",
     }
 }
 

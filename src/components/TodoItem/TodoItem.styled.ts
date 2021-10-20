@@ -11,6 +11,7 @@ interface TagsProps {
 export const Card = styled.div<TodoItemProps>`
   padding-top:20px;
   margin-top:1px;
+  margin-bottom: 20px;
   background-color:${({ theme }) => theme.colors.white};
   color:${({ theme }) => theme.colors.secondary};
   //border-radius: 7px 7px 7px 7px;
@@ -28,7 +29,8 @@ display: block;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const CheckBox = styled.input <TodoItemProps>`
@@ -82,4 +84,50 @@ export const Tags = styled.button<TagsProps>`
 export const Date = styled.div<TodoItemProps>`
 font-size:14px;
 color:${({ theme }) => theme.colors.secondary};
+`;
+
+export const UpdateButton = styled.button<TodoItemProps>`
+font-size:15px;
+padding: 6px;
+margin:15px;
+color: ${({ theme }) => theme.colors.white};
+background-color:${({ theme }) => theme.colors.info};
+border-radius:  7px 7px 7px 7px;
+border:1px solid ${({ theme }) => theme.colors.info};
+text-align:left;
+@media (max-width: ${({ theme }) => theme.colors.info}) {
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+/* &:hover {
+  color: ${({ theme }) => theme.colors.info};
+} */
+
+`;
+
+
+export const ImportantButton = styled.button<TodoItemProps>`
+font-size:15px;
+padding: 6px;
+margin:15px;
+color: ${({ theme }) => theme.colors.white};
+background-color:${({ theme }) => theme.colors.pink};
+border-radius:  7px 7px 7px 7px;
+border:1px solid ${({ theme }) => theme.colors.pink};
+text-align:left;
+@media (max-width: ${({ theme }) => theme.colors.pink}) {
+  font-size: 1.5rem;
+  text-align: left;
+}
+/* 
+&:hover {
+  color: ${({ theme }) => theme.colors.pink};
+} */
+
+`;
+
+export const CardLeft = styled.div<TodoItemProps>`
+`;
+export const CardRight = styled.div<TodoItemProps>`
 `;
