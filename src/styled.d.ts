@@ -19,6 +19,7 @@ declare module "styled-components" {
             border: string;
             green:string;
             info:string;
+            danger:string;
         }
     }
 }

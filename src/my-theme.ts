@@ -18,6 +18,7 @@ const myTheme: DefaultTheme = {
         border:"#ebe9f1",
         green: "#28c76f",
         info:"#00cfe8",
+        danger:"#ea5455"
     }
 }
 

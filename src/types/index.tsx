@@ -10,7 +10,7 @@ export interface UserProps {
 }
 
 export interface ITodoItemProps {
-  id:number;
+  id: number;
   title: string;
   date: Date;
   tag: string; //"Low" | "Medium" | "High";
@@ -40,7 +40,10 @@ export interface ITodoItemContext {
   mediumTagTodoItems: () => void;
   highTagTodoItems: () => void;
   todoItem: ITodoItemProps;
-  setTodoItem:React.Dispatch<React.SetStateAction<ITodoItemProps>>;
+  setTodoItem: React.Dispatch<React.SetStateAction<ITodoItemProps>>;
+  handleCompleted: (todo: ITodoItemProps) => void;
+  handleImportant: (todo: ITodoItemProps) => void;
+  handleDelete: (todo: ITodoItemProps) => void;
 }
 export interface IButtonProps {
   text: string;
@@ -49,13 +52,13 @@ export interface IButtonProps {
   handleTag?: (selected: string) => ITodoItemProps[];
 }
 
-export interface IStyledProps{
+export interface IStyledProps {
   theme: DefaultTheme;
 }
 
 export interface ITagsProps {
   theme: DefaultTheme;
-  colorTag: string
+  colorTag: string;
 }
 export interface IImportedButtonProps {
   theme: DefaultTheme;

@@ -82,7 +82,7 @@ color:${({ theme }) => theme.colors.secondary};
 export const UpdateButton = styled.button<IStyledProps>`
 font-size:15px;
 padding: 6px;
-margin:15px;
+margin:10px;
 color: ${({ theme }) => theme.colors.white};
 background-color:${({ theme }) => theme.colors.info};
 border-radius:  7px 7px 7px 7px;
@@ -103,7 +103,7 @@ text-align:left;
 export const ImportantButton = styled.button<IStyledProps>`
 font-size:15px;
 padding: 6px;
-margin:15px;
+margin:10px;
 color: ${({ theme }) => theme.colors.white};
 background-color:${({ theme }) => theme.colors.pink};
 border-radius:  7px 7px 7px 7px;
@@ -119,7 +119,25 @@ text-align:left;
 } */
 
 `;
+export const DeletedButton = styled.button<IStyledProps>`
+font-size:15px;
+padding: 6px;
+margin:10px;
+color: ${({ theme }) => theme.colors.white};
+background-color:${({ theme }) => theme.colors.danger};
+border-radius:  7px 7px 7px 7px;
+border:1px solid ${({ theme }) => theme.colors.danger};
+text-align:left;
+@media (max-width: ${({ theme }) => theme.colors.danger}) {
+  font-size: 1.5rem;
+  text-align: left;
+}
+/* 
+&:hover {
+  color: ${({ theme }) => theme.colors.danger};
+} */
 
+`;
 export const CardLeft = styled.div<IStyledProps>`
 `;
 export const CardRight = styled.div<IStyledProps>`
