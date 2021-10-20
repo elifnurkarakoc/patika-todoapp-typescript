@@ -15,11 +15,14 @@ import { AddNewButton, SidebarButton } from "../index";
 
 const SidebarLeft = () => {
   const {
+    getTodoItems,
     completedTodoItems,
     deletedTodoItems,
     importantTodoItems,
     activeTodoItems,
-    tagTodoItems,
+    lowTagTodoItems,
+    mediumTagTodoItems,
+    highTagTodoItems,
   } = useTodoItem();
   return (
     <Sidebar>
@@ -27,7 +30,7 @@ const SidebarLeft = () => {
       <SidebarButton
         text="My task"
         icon={<TaskIcon />}
-        handleClick={activeTodoItems}
+        handleClick={getTodoItems}
       />
       <SidebarButton
         text="Active"
@@ -53,17 +56,17 @@ const SidebarLeft = () => {
       <SidebarButton
         text="Low"
         icon={<LowTagIcon />}
-        handleClick={tagTodoItems}
+        handleClick={lowTagTodoItems}
       />
       <SidebarButton
         text="Medium"
         icon={<MediumTagIcon />}
-        handleClick={tagTodoItems}
+        handleClick={mediumTagTodoItems}
       />
       <SidebarButton
         text="High"
         icon={<HighTagIcon />}
-        handleClick={tagTodoItems}
+        handleClick={highTagTodoItems}
       />
     </Sidebar>
   );

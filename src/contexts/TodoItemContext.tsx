@@ -36,7 +36,7 @@ const defaultTodoItems = [
     description: "Second todo item content",
     important: false,
     completed: false,
-    deleted: false,
+    deleted: true,
   },
   {
     title: "Todo Item2 active",
@@ -66,60 +66,80 @@ export const TodoItemProvider: FC = ({ children }) => {
   const [todoItems, setTodoItems] = useState<ITodoItemProps[]>(
     defaultTodoItemContext.todoItems
   );
-  const [selectedTodoItems, setSelectedTodoItems] =
-    useState<ITodoItemProps[]>(defaultTodoItemContext.todoItems);
+  const [selectedTodoItems, setSelectedTodoItems] = useState<ITodoItemProps[]>(
+    defaultTodoItemContext.todoItems
+  );
 
   const addTodoItem = (todoItem: ITodoItemProps) => {
     setTodoItems([...todoItems, todoItem]);
   };
 
-  const getSelectedTodoItems = (selectedFeature: string) => {
-    var tempArray = todoItems.filter((todoItem) => todoItem.completed); //selectedFeature
-    console.log(tempArray);
-    return tempArray;
-  };
+  //   const getSelectedTodoItems = (selectedFeature: string) => {
+  //     var tempArray: ITodoItemProps[] = todoItems;
+  //     if (selectedFeature === "completed") {
+  //       tempArray = todoItems.filter((todoItem) => todoItem.completed);
+  //     } else if (selectedFeature === "deleted") {
+  //       tempArray = todoItems.filter((todoItem) => todoItem.deleted);
+  //     } else if (selectedFeature === "important") {
+  //       tempArray = todoItems.filter((todoItem) => todoItem.important);
+  //     } else if (selectedFeature === "active") {
+  //       tempArray = todoItems.filter((todoItem) => !todoItem.completed);
+  //     } else if (selectedFeature === "Low") {
+  //       tempArray = todoItems.filter((todoItem) => todoItem.tag === "Low");
+  //     } else if (selectedFeature === "Medium") {
+  //       tempArray = todoItems.filter((todoItem) => todoItem.tag === "Medium");
+  //     } else if (selectedFeature === "High") {
+  //       tempArray = todoItems.filter((todoItem) => todoItem.tag === "High");
+  //     }
+  //     setSelectedTodoItems(tempArray);
+  //   };
+  const getTodoItems = () =>{
+    var tempArray = todoItems.filter((todoItem) => !todoItem.deleted);
+    setSelectedTodoItems(tempArray);
+  }
   const completedTodoItems = () => {
     var tempArray = todoItems.filter((todoItem) => todoItem.completed);
     setSelectedTodoItems(tempArray);
-    //return kalkıcak
-    return tempArray;
   };
   const deletedTodoItems = () => {
     var tempArray = todoItems.filter((todoItem) => todoItem.deleted);
     setSelectedTodoItems(tempArray);
-    return tempArray;
   };
   const importantTodoItems = () => {
     var tempArray = todoItems.filter((todoItem) => todoItem.important);
     setSelectedTodoItems(tempArray);
-    return tempArray;
   };
   const activeTodoItems = () => {
-    var tempArray = todoItems.filter((todoItem) => !todoItem.completed);
+    var tempArray = todoItems.filter((todoItem) => !todoItem.completed && !todoItem.deleted );
     setSelectedTodoItems(tempArray);
-    console.log("setslected",selectedTodoItems)
-    return tempArray;
   };
-  const tagTodoItems = () => {
-    var tempArray = todoItems.filter(
-      (todoItem) => todoItem.tag === "Low"
-    );
+  const lowTagTodoItems = () => {
+    var tempArray = todoItems.filter((todoItem) => todoItem.tag === "Low");
     setSelectedTodoItems(tempArray);
-    return tempArray;
   };
-
+  const mediumTagTodoItems = () => {
+    var tempArray = todoItems.filter((todoItem) => todoItem.tag === "Medium");
+    setSelectedTodoItems(tempArray);
+  };
+  const highTagTodoItems = () => {
+    var tempArray = todoItems.filter((todoItem) => todoItem.tag === "High");
+    setSelectedTodoItems(tempArray);
+  };
   //important,active,low,medium,high,tags
 
   const values = {
     todoItems,
     addTodoItem,
     selectedTodoItems,
-    getSelectedTodoItems,
+    // getSelectedTodoItems,
+    getTodoItems,
     completedTodoItems,
     deletedTodoItems,
     importantTodoItems,
     activeTodoItems,
-    tagTodoItems,
+    lowTagTodoItems,
+    mediumTagTodoItems,
+    highTagTodoItems,
   };
   return (
     <TodoItemContext.Provider value={values}>

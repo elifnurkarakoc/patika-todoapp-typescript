@@ -25,17 +25,19 @@ export interface ITodoItemContext {
   todoItems: ITodoItemProps[];
   selectedTodoItems: ITodoItemProps[];
   addTodoItem?: (todo: ITodoItemProps) => void;
-  getSelectedTodoItems:(selectedFeature:string)  => ITodoItemProps[] ;
-  completedTodoItems:()=> ITodoItemProps[] ;
-  deletedTodoItems:()=> ITodoItemProps[] ;
-  importantTodoItems:()=> ITodoItemProps[] ;
-  activeTodoItems:()=> ITodoItemProps[] ;
-  tagTodoItems:()=> ITodoItemProps[] ;
+  // getSelectedTodoItems:(selected:string)  => void ;
+  getTodoItems: () => void;
+  completedTodoItems: () => void;
+  deletedTodoItems: () => void;
+  importantTodoItems: () => void;
+  activeTodoItems: () => void;
+  lowTagTodoItems: () => void;
+  mediumTagTodoItems: () => void;
+  highTagTodoItems: () => void;
 }
-
 export interface IButtonProps {
   text: string;
   icon: JSX.Element | JSX.IntrinsicElements | any;
-  handleClick?: () => ITodoItemProps[];
-  handleTag?:(selected:string)=> ITodoItemProps[] ;
+  handleClick: () => void;
+  handleTag?: (selected: string) => ITodoItemProps[];
 }
