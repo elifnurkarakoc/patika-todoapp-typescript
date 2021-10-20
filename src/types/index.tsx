@@ -24,7 +24,7 @@ export interface IPopUpContext {
 export interface ITodoItemContext {
   todoItems: ITodoItemProps[];
   selectedTodoItems: ITodoItemProps[];
-  addTodoItem?: (todo: ITodoItemProps) => void;
+  addTodoItem: (todo: ITodoItemProps) => void ;
   // getSelectedTodoItems:(selected:string)  => void ;
   getTodoItems: () => void;
   completedTodoItems: () => void;

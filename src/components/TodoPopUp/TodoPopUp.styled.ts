@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { DefaultTheme } from "styled-components";
 
 interface TodoPopUpProps {
-    theme: DefaultTheme;
+  theme: DefaultTheme;
 }
 
 
@@ -44,7 +44,7 @@ border:none;
   }
 `;
 
-export const Input =styled.input<TodoPopUpProps>`
+export const Input = styled.input<TodoPopUpProps>`
 padding:5px;
 margin:5px;
 height:40px;
@@ -52,7 +52,7 @@ font-size:18px;
 margin-bottom: 10px;
 `;
 
-export const TextArea =styled.textarea<TodoPopUpProps>`
+export const TextArea = styled.textarea<TodoPopUpProps>`
 padding:5px;
 margin:5px;
 height:80px;
@@ -60,13 +60,13 @@ font-size:18px;
 margin-bottom:40px;
 `;
 
-export const Select =styled.select<TodoPopUpProps>`
+export const Select = styled.select<TodoPopUpProps>`
 padding:5px;
 margin:5px;
 font-size:18px;
 `;
 
-export const Form =styled.form<TodoPopUpProps>`
+export const Form = styled.form<TodoPopUpProps>`
 left: 25%;
 right: 25%;
 top: 25%;
@@ -76,7 +76,7 @@ display:flex;
 flex-direction:column;
 `;
 
-export const Button =styled.button<TodoPopUpProps>`
+export const Button = styled.button<TodoPopUpProps>`
 font-size:18px;
 justify-content:center;
 align-items:center;
@@ -95,7 +95,7 @@ cursor: pointer;
 
 `;
 
-export const Header =styled.div<TodoPopUpProps>`
+export const Header = styled.div<TodoPopUpProps>`
 
 position: fixed;
 padding:10px;
@@ -109,12 +109,21 @@ border:none;
   }
 `;
 
-
-export const ImportedButton =styled.button<TodoPopUpProps>`
+interface ImportedButtonProps {
+  theme: DefaultTheme;
+  important: boolean;
+}
+export const ImportedButton = styled.button<ImportedButtonProps>`
 
 background-color:${({ theme }) => theme.colors.white};
 border:none;
 &:hover {
-    color:${({ theme }) => theme.colors.purple};
+    color:${({ theme }) => theme.colors.orange};
   }
+${props => props.important && css`
+  color:${({ theme }) => theme.colors.orange};
+  ` }
+  ${props => !props.important && css`
+  color:${({ theme }) => theme.colors.purple};
+  ` }
 `;
