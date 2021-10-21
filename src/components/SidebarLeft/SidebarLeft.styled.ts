@@ -10,13 +10,13 @@ border-right:1px solid ${({ theme }) => theme.colors.border};
 display: flex;
 flex-direction: column;
 justify-content: center;
-height:auto;//100%
+//height:auto;//100%
 text-align: left;
 padding-left:20px;
 padding-right:20px;
 position: absolute;
 transition: transform 0.3s ease-in-out;
- 
+height: -webkit-fill-available;
 @media (max-width: ${({ theme }) => theme.colors.primary}) {
   width: 100%;
 }
