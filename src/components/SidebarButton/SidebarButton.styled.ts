@@ -17,12 +17,18 @@ text-align:left;
 &:hover {
   color: ${({ theme }) => theme.colors.primary};
 }
+&:focus {
+  color: ${({ theme }) => theme.colors.primary};
+}
+/* &:active {
+  color: ${({ theme }) => theme.colors.primary};
+} */
+
 `;
 
 export const ButtonContent = styled.div<IStyledProps>`
 display: flex;
-/* justify-content: space-around;
-align-items:center; */
+
 `;
 export const ButtonIcon = styled.div<IStyledProps>`
 float: left;

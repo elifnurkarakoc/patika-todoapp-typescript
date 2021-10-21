@@ -41,6 +41,7 @@ const SidebarLeft = () => {
         text="Important"
         icon={<ImportantIcon />}
         handleClick={importantTodoItems}
+        
       />
       <SidebarButton
         text="Completed"

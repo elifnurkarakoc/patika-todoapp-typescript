@@ -94,9 +94,9 @@ export const TodoItemProvider: FC = ({ children }) => {
   const updateTodoItem = (todoItem: ITodoItemProps) => {
     const index = todoItems.findIndex((t) => t.id === todoItem.id);
     todoItems[index] = todoItem;
-    console.log(todoItems);
+    //console.log(todoItems);
     setTodoItems(todoItems);
-    console.log("after set", todoItems);
+    //console.log("after set", todoItems);
   };
   //   const getSelectedTodoItems = (selectedFeature: string) => {
   //     var tempArray: ITodoItemProps[] = todoItems;
