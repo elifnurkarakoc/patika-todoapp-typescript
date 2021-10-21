@@ -6,15 +6,14 @@ interface LayoutProps {
 }
 
 export const HeaderContainer = styled.h1<LayoutProps>`
-  margin:3;
-  padding:2px;
-  text-align:center;
-  width: 55%;
+  padding-left:10px;
+  text-align:left;
+  width: 60%;
   background-color:${({ theme }) => theme.colors.white};
   color:${({ theme }) => theme.colors.primary};
   border-radius:  7px 7px 7px 7px;
   border:1px solid ${({ theme }) => theme.colors.border};
- position:absolute; top:0px; height:50px; overflow:hidden;
+  position:absolute; top:0px; height:50px; overflow:hidden;
 `;
 
 export const ContentContainer = styled.div<LayoutProps>`

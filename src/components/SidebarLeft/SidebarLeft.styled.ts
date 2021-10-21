@@ -10,13 +10,16 @@ border-right:1px solid ${({ theme }) => theme.colors.border};
 display: flex;
 flex-direction: column;
 justify-content: center;
-//height:auto;//100%
+/* height:100%; */
 text-align: left;
 padding-left:20px;
 padding-right:20px;
 position: absolute;
 transition: transform 0.3s ease-in-out;
 height: -webkit-fill-available;
+/* -webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box; */
 @media (max-width: ${({ theme }) => theme.colors.primary}) {
   width: 100%;
 }

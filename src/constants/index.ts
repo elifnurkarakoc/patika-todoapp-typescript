@@ -31,6 +31,26 @@ export const defaultTodoItems = [
       completed: true,
       deleted: false,
     },
+    {
+      id: 4,
+      title: "Todo Item3",
+      date: new Date(),
+      tag: "High",
+      description: "Third todo item content",
+      important: false,
+      completed: true,
+      deleted: false,
+    },
+    // {
+    //   id: 5,
+    //   title: "Todo Item3",
+    //   date: new Date(),
+    //   tag: "High",
+    //   description: "Third todo item content",
+    //   important: false,
+    //   completed: true,
+    //   deleted: false,
+    // },
   ];
 
 
