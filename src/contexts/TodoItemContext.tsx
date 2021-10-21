@@ -32,36 +32,6 @@ const defaultTodoItems = [
     completed: false,
     deleted: false,
   },
-  // {
-  //   id: 4,
-  //   title: "Todo Item2 active deleted",
-  //   date: new Date(),
-  //   tag: "High",
-  //   description: "Second todo item content",
-  //   important: false,
-  //   completed: false,
-  //   deleted: false,
-  // },
-  // {
-  //   id: 5,
-  //   title: "Todo Item2 active",
-  //   date: new Date(),
-  //   tag: "High",
-  //   description: "Second todo item content",
-  //   important: false,
-  //   completed: false,
-  //   deleted: false,
-  // },
-  // {
-  //   id: 6,
-  //   title: "Todo Item2 active important",
-  //   date: new Date(),
-  //   tag: "High",
-  //   description: "Second todo item content",
-  //   important: false,
-  //   completed: false,
-  //   deleted: false,
-  // },
 ];
 const defaultTodoItemContext = {
   todoItems: defaultTodoItems,
@@ -94,9 +64,7 @@ export const TodoItemProvider: FC = ({ children }) => {
   const updateTodoItem = (todoItem: ITodoItemProps) => {
     const index = todoItems.findIndex((t) => t.id === todoItem.id);
     todoItems[index] = todoItem;
-    //console.log(todoItems);
     setTodoItems(todoItems);
-    //console.log("after set", todoItems);
   };
   //   const getSelectedTodoItems = (selectedFeature: string) => {
   //     var tempArray: ITodoItemProps[] = todoItems;

@@ -96,11 +96,9 @@ cursor: pointer;
 &:hover {
   background-color:${({ theme }) => theme.colors.purple};
 }
-
 `;
 
 export const Header = styled.div<IStyledProps>`
-
 position: fixed;
 padding:10px;
 margin-top: 3px;
@@ -115,17 +113,3 @@ border:none;
 `;
 
 
-export const ImportedButton = styled.button<IImportedButtonProps>`
-
-background-color:${({ theme }) => theme.colors.white};
-border:none;
-&:hover {
-    color:${({ theme }) => theme.colors.orange};
-  }
-${props => props.important && css`
-  color:${({ theme }) => theme.colors.orange};
-  ` }
-  ${props => !props.important && css`
-  color:${({ theme }) => theme.colors.purple};
-  ` }
-`;

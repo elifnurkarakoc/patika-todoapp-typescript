@@ -4,7 +4,6 @@ import {
   TodoPopUpContent,
   Header,
   CloseButton,
-  ImportedButton,
   Form,
   Input,
   Select,
@@ -13,7 +12,6 @@ import {
   Label,
 } from "./TodoPopUp.styled";
 import { usePopUp } from "../../contexts/PopUpContext";
-import { ImportedIcon } from "../../icons/icons";
 import { useFormik } from "formik";
 import { ITodoItemProps } from "../../types";
 import { validationSchema } from "./validations";
@@ -29,8 +27,8 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
   deleted,
   important,
 }) => {
-  const { isOpen, handleClick } = usePopUp();
-  const { addTodoItem, todoItems, todoItem, updateTodoItem } = useTodoItem();
+  const { handleClick } = usePopUp();
+  const { addTodoItem, todoItem, updateTodoItem } = useTodoItem();
   let defaultTodoItem;
   if (title) {
     defaultTodoItem = {
@@ -77,12 +75,12 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
       };
       if (todoItem.title) {
         updateTodoItem(tempTodoItem);
-        console.log("update", tempTodoItem);
+        //console.log("update", tempTodoItem);
         handleClick({} as ITodoItemProps);
       } else {
         addTodoItem(tempTodoItem);
         handleClick({} as ITodoItemProps);
-        console.log("add", tempTodoItem);
+        //console.log("add", tempTodoItem);
       }
     },
     validationSchema,
@@ -149,8 +147,6 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          
-          
            Important</Label>
            <Label htmlFor="completed">
            <input
@@ -161,11 +157,8 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          
-          
            Completed</Label>
           <Button type="submit">{title ? "Update" : "Add"}</Button>
-
           {title ? (
             <></>
           ) : (

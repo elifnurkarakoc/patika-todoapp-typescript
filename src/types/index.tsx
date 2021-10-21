@@ -1,12 +1,6 @@
 import { DefaultTheme } from "styled-components";
 import { FormikErrors } from 'formik';
 
-export interface UserProps {
-  username: string;
-  name: string;
-  surname: string;
-}
-
 export interface ITodoItemProps {
   id: number;
   title: string;
@@ -20,7 +14,7 @@ export interface ITodoItemProps {
 
 export interface IPopUpContext {
   isOpen: boolean;
-  handleClick?: () => void;
+  handleClick: (todo: ITodoItemProps) => void;
 }
 
 export interface ITodoItemContext {

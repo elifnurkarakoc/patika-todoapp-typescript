@@ -1,20 +1,13 @@
 import { createContext, useState, useContext, FC } from "react";
-import { ITodoItemProps } from "../types";
+import { ITodoItemProps,IPopUpContext } from "../types";
 import { useTodoItem } from "./TodoItemContext";
 
-interface IPopUpContext {
-  isOpen: boolean;
-  handleClick: (todo: ITodoItemProps) => void;
-}
-const defaultState = {
-  isOpen: false,
-};
-const PopUpContext = createContext<IPopUpContext>({} as IPopUpContext); //defaultState
+const PopUpContext = createContext<IPopUpContext>({} as IPopUpContext);
 
 export const PopUpProvider: FC = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { todoItem, setTodoItem } = useTodoItem();
+  const { setTodoItem } = useTodoItem();
 
   const handleClick = (todo: ITodoItemProps | null) => {
     setIsOpen(!isOpen);
