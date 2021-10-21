@@ -2,13 +2,13 @@ import styled, { css } from "styled-components";
 import { IStyledProps,ITagsProps } from "../../types";
 
 export const Card = styled.div<IStyledProps>`
-  padding-top:20px;
+  padding-top:10px;
   margin-top:1px;
   margin-bottom: 20px;
   background-color:${({ theme }) => theme.colors.white};
   color:${({ theme }) => theme.colors.secondary};
   //border-radius: 7px 7px 7px 7px;
-  //border-bottom:1px solid ${({ theme }) => theme.colors.secondary};
+  border-bottom:1px solid ${({ theme }) => theme.colors.border};
  `;
 
 export const CardContent = styled.div<IStyledProps>`
@@ -82,7 +82,7 @@ color:${({ theme }) => theme.colors.secondary};
 export const UpdateButton = styled.button<IStyledProps>`
 font-size:15px;
 padding: 6px;
-margin:10px;
+margin:20px;
 color: ${({ theme }) => theme.colors.white};
 background-color:${({ theme }) => theme.colors.info};
 border-radius:  7px 7px 7px 7px;
@@ -122,7 +122,7 @@ text-align:left;
 export const DeletedButton = styled.button<IStyledProps>`
 font-size:15px;
 padding: 6px;
-margin:10px;
+margin:30px;
 color: ${({ theme }) => theme.colors.white};
 background-color:${({ theme }) => theme.colors.danger};
 border-radius:  7px 7px 7px 7px;

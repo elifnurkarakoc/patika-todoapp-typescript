@@ -13,9 +13,11 @@ const TodoItemList:React.FC = () => {
   },[todoItems,isOpen])
   return(
     <TodoItemListContainer>
+      
       {selectedTodoItems.map((todo, index) => (
         <TodoItem {...todo} key={index} />
       ))}
+      
     </TodoItemListContainer>
   );
 };
