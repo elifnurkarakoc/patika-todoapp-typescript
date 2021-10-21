@@ -16,7 +16,7 @@ display: block;
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
-  cursor: pointer;
+  /* cursor: pointer; */
   font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -26,17 +26,17 @@ display: block;
   justify-content: space-between;
 `;
 
-export const CheckBox = styled.input <IStyledProps>`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 15px;
-  width: 15px;
-  color: ${({ theme }) => theme.colors.primary};
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary};
-  }
- `;
+// export const CheckBox = styled.input <IStyledProps>`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   height: 15px;
+//   width: 15px;
+//   color: ${({ theme }) => theme.colors.primary};
+//   &:hover {
+//     color: ${({ theme }) => theme.colors.primary};
+//   }
+//  `;
 
 
 export const TodoText = styled.p<IStyledProps>`
@@ -83,6 +83,7 @@ export const UpdateButton = styled.button<IStyledProps>`
 font-size:15px;
 padding: 6px;
 margin:20px;
+cursor: pointer;
 color: ${({ theme }) => theme.colors.white};
 background-color:${({ theme }) => theme.colors.info};
 border-radius:  7px 7px 7px 7px;
@@ -100,29 +101,30 @@ text-align:left;
 `;
 
 
-export const ImportantButton = styled.button<IStyledProps>`
-font-size:15px;
-padding: 6px;
-margin:10px;
-color: ${({ theme }) => theme.colors.white};
-background-color:${({ theme }) => theme.colors.pink};
-border-radius:  7px 7px 7px 7px;
-border:1px solid ${({ theme }) => theme.colors.pink};
-text-align:left;
-@media (max-width: ${({ theme }) => theme.colors.pink}) {
-  font-size: 1.5rem;
-  text-align: left;
-}
-/* 
-&:hover {
-  color: ${({ theme }) => theme.colors.pink};
-} */
+// export const ImportantButton = styled.button<IStyledProps>`
+// font-size:15px;
+// padding: 6px;
+// margin:10px;
+// color: ${({ theme }) => theme.colors.white};
+// background-color:${({ theme }) => theme.colors.pink};
+// border-radius:  7px 7px 7px 7px;
+// border:1px solid ${({ theme }) => theme.colors.pink};
+// text-align:left;
+// @media (max-width: ${({ theme }) => theme.colors.pink}) {
+//   font-size: 1.5rem;
+//   text-align: left;
+// }
+// /* 
+// &:hover {
+//   color: ${({ theme }) => theme.colors.pink};
+// } */
 
-`;
+// `;
 export const DeletedButton = styled.button<IStyledProps>`
 font-size:15px;
 padding: 6px;
 margin:30px;
+cursor: pointer;
 color: ${({ theme }) => theme.colors.white};
 background-color:${({ theme }) => theme.colors.danger};
 border-radius:  7px 7px 7px 7px;

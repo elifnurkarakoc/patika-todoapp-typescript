@@ -1,7 +1,5 @@
-import styled from "styled-components";
 import { DefaultTheme } from "styled-components";
-
-export type TagKeys = "Low" | "Medium" | "High";
+import { FormikErrors } from 'formik';
 
 export interface UserProps {
   username: string;
@@ -63,4 +61,8 @@ export interface ITagsProps {
 export interface IImportedButtonProps {
   theme: DefaultTheme;
   important: boolean;
+}
+
+export interface IErrorProps{
+  message:string | FormikErrors<Date>;
 }

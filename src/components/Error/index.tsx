@@ -1,17 +1,10 @@
-import React from 'react'
-import { FormikErrors } from 'formik';
-import {ErrorText} from "./Error.styled"
-interface IErrorProps{
-    message:string | FormikErrors<Date>;
-}
+import React from "react";
+import { ErrorText } from "./Error.styled";
+import { IErrorProps } from "../../types";
 
+//PopUp Formik form validation error 
+const Error: React.FC<IErrorProps> = ({ message }) => {
+  return <ErrorText>{message}</ErrorText>;
+};
 
-const Error:React.FC<IErrorProps> = ({message}) => {
-    return (
-        <ErrorText>
-            {message}
-        </ErrorText>
-    )
-}
-
-export default Error
+export default Error;

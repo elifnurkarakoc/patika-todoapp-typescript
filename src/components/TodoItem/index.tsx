@@ -1,21 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Card,
   CardContent,
   TodoText,
   Date,
   Tags,
-  CheckBox,
   UpdateButton,
   CardLeft,
   CardRight,
-  ImportantButton,
   DeletedButton,
 } from "./TodoItem.styled";
-import { TagKeys, ITodoItemProps } from "../../types";
+import { ITodoItemProps } from "../../types";
 import { usePopUp } from "../../contexts/PopUpContext";
 import { useTodoItem } from "../../contexts/TodoItemContext";
-import { SidebarButton } from "..";
 import {
   CompletedIcon,
   DeletedIcon,
