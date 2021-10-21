@@ -122,7 +122,7 @@ export const TodoItemProvider: FC = ({ children }) => {
     setSelectedTodoItems(tempArray);
   };
   const completedTodoItems = () => {
-    var tempArray = todoItems.filter((todoItem) => todoItem.completed);
+    var tempArray = todoItems.filter((todoItem) => todoItem.completed  && !todoItem.deleted);
     setSelectedTodoItems(tempArray);
   };
   const deletedTodoItems = () => {

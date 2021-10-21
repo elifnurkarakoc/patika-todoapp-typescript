@@ -10,6 +10,7 @@ import {
   Select,
   TextArea,
   Button,
+  Label,
 } from "./TodoPopUp.styled";
 import { usePopUp } from "../../contexts/PopUpContext";
 import { ImportedIcon } from "../../icons/icons";
@@ -70,8 +71,8 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
         date: new Date(values.date),
         tag: values.tag,
         description: values.description,
-        important: false,
-        completed: false,
+        important: values.important,
+        completed: values.completed,
         deleted: false,
       };
       if (todoItem.title) {
@@ -100,8 +101,8 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
       <TodoPopUpContent>
         <Header>
           {title ? "Update Task" : "Add Task"}
-
-          {/* <ImportedButton
+{/* 
+          <ImportedButton
             important={importantValue}
             onClick={() => setImportantValues(importantValue)}
           >
@@ -137,6 +138,7 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
             onChange={handleChange}
             onBlur={handleBlur}
           >
+            <option value="" selected disabled hidden>Choose here</option>
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
@@ -152,6 +154,31 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
           {errors.description && touched.description && (
             <Error message={errors.description} />
           )}
+          
+          <Label htmlFor="important">
+           <input
+            type="checkbox"
+            name="important"
+            id="important"
+            checked={values.important}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+          
+          
+           Important</Label>
+           <Label htmlFor="completed">
+           <input
+            type="checkbox"
+            name="completed"
+            id="completed"
+            checked={values.completed}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+          
+          
+           Completed</Label>
           <Button type="submit">{title ? "Update" : "Add"}</Button>
 
           {title ? (

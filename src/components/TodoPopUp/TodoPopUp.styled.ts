@@ -47,13 +47,19 @@ height:40px;
 font-size:18px;
 margin-bottom: 10px;
 `;
-
+export const Label =styled.label<IStyledProps>`
+padding:2px;
+margin:5px;
+height:40px;
+font-size:18px;
+margin-bottom: 10px;
+`;
 export const TextArea = styled.textarea<IStyledProps>`
 padding:5px;
 margin:5px;
 height:80px;
 font-size:18px;
-margin-bottom:40px;
+margin-bottom:10px;
 `;
 
 export const Select = styled.select<IStyledProps>`
