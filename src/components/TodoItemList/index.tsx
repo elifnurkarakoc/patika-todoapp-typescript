@@ -10,7 +10,7 @@ const TodoItemList: React.FC = () => {
 
   useEffect(() => {
     getTodoItems();
-  }, [todoItems, isOpen]);
+  }, [todoItems,isOpen]);
   return (
     <TodoItemListContainer>
       {selectedTodoItems.map((todo, index) => (

@@ -33,8 +33,6 @@ export interface ITodoItemContext {
   highTagTodoItems: () => void;
   todoItem: ITodoItemProps;
   setTodoItem: React.Dispatch<React.SetStateAction<ITodoItemProps>>;
-  handleCompleted: (todo: ITodoItemProps) => void;
-  handleImportant: (todo: ITodoItemProps) => void;
   handleDelete: (todo: ITodoItemProps) => void;
 }
 export interface IButtonProps {

@@ -89,6 +89,7 @@ export const TodoItemProvider: FC = ({ children }) => {
     var tempArray = todoItems.filter((todoItem) => !todoItem.deleted);
     setSelectedTodoItems(tempArray);
   };
+
   const completedTodoItems = () => {
     var tempArray = todoItems.filter((todoItem) => todoItem.completed  && !todoItem.deleted);
     setSelectedTodoItems(tempArray);
@@ -120,24 +121,6 @@ export const TodoItemProvider: FC = ({ children }) => {
     setSelectedTodoItems(tempArray);
   };
 
-  const handleCompleted = (todo: ITodoItemProps) => {
-    console.log("handlecompleted before", todo);
-    todoItems.map((t) =>
-      t.id === todo.id ? (t.completed = !todo.completed) : ""
-    );
-    console.log("handlecompleted after", todoItems);
-    setTodoItems(todoItems);
-    getTodoItems();
-  };
-  const handleImportant =(todo: ITodoItemProps) => {
-    console.log("important before", todo);
-    todoItems.map((t) =>
-      t.id === todo.id ? (t.important = !todo.important) : ""
-    );
-    console.log("important after", todoItems);
-    setTodoItems(todoItems);
-    getTodoItems();
-  }
   const handleDelete =(todo: ITodoItemProps) => {
     console.log("important before", todo);
     todoItems.map((t) =>
@@ -164,8 +147,6 @@ export const TodoItemProvider: FC = ({ children }) => {
     highTagTodoItems,
     todoItem,
     setTodoItem,
-    handleCompleted,
-    handleImportant,
     handleDelete,
   };
   return (

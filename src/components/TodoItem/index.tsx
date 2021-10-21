@@ -23,10 +23,6 @@ const TodoItem: React.FC<ITodoItemProps> = (todo: ITodoItemProps) => {
   console.log(todo.title);
   const { isOpen, handleClick } = usePopUp();
   const {
-    todoItem,
-    setTodoItem,
-    handleCompleted,
-    handleImportant,
     handleDelete,
   } = useTodoItem();
 
