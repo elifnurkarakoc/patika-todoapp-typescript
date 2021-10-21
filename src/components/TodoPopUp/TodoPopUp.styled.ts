@@ -15,7 +15,7 @@ export const TodoPopUpContainer = styled.div<IStyledProps>`
 `;
 
 export const TodoPopUpContent = styled.div<IStyledProps>`
-height: 525px;
+height: 550px;
 position: absolute;
 left: 25%;
 right: 25%;
@@ -23,8 +23,10 @@ top: 25%;
 bottom: 25%;
 border-radius: 5px;
 margin: auto;
+padding-top:5px;
 float: left;
 background: white;
+overflow: auto;
 `;
 
 export const CloseButton = styled.button<IStyledProps>`
@@ -101,10 +103,11 @@ export const Header = styled.div<IStyledProps>`
 
 position: fixed;
 padding:10px;
+margin-top: 3px;
 margin-left:50px;
-font-size: 25px;
+font-size: 24px;
 font-weight: bold;
-background-color:${({ theme }) => theme.colors.white};
+/* background-color:${({ theme }) => theme.colors.white}; */
 border:none;
 &:hover {
     color:${({ theme }) => theme.colors.purple};

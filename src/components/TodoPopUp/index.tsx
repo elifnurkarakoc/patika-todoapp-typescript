@@ -87,28 +87,13 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
     },
     validationSchema,
   });
-  //TODO buraya tekrar bakıcam, renk değişikliğini tutamadım.
-  //Error mesajları eklenicek.
-  let importantValue = false;
-  const setImportantValues = (value: boolean) => {
-    importantValue = !value;
-    values.important = !value;
-    console.log(importantValue);
-    console.log(values.important);
-  };
+
   return (
     <TodoPopUpContainer>
       <TodoPopUpContent>
         <Header>
           {title ? "Update Task" : "Add Task"}
-{/* 
-          <ImportedButton
-            important={importantValue}
-            onClick={() => setImportantValues(importantValue)}
-          >
-            <ImportedIcon />
-            imported
-          </ImportedButton> */}
+
         </Header>
         <CloseButton onClick={() => handleClick({} as ITodoItemProps)}>
           x
