@@ -20,7 +20,7 @@ import {
   ImportantIcon,
 } from "../../icons/icons";
 const TodoItem: React.FC<ITodoItemProps> = (todo: ITodoItemProps) => {
-  console.log(todo.title);
+ // console.log(todo.title);
   const { isOpen, handleClick } = usePopUp();
   const {
     handleDelete,

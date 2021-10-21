@@ -19,6 +19,7 @@ import { useTodoItem } from "../../contexts/TodoItemContext";
 import { Error } from "..";
 
 const TodoPopUp: React.FC<ITodoItemProps> = ({
+  id,
   title,
   date,
   tag,
@@ -32,6 +33,7 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
   let defaultTodoItem;
   if (title) {
     defaultTodoItem = {
+      id: id,
       title: title,
       date: date,
       tag: tag,
@@ -42,6 +44,7 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
     };
   } else {
     defaultTodoItem = {
+      id:(new Date()).getTime(),
       title: "",
       date: new Date().getDate(),
       tag: "",
@@ -64,7 +67,7 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
     initialValues: defaultTodoItem,
     onSubmit: (values, bag) => {
       const tempTodoItem: ITodoItemProps = {
-        id:todoItem.id||8,
+        id: todoItem.id || (new Date()).getTime(),
         title: values.title,
         date: new Date(values.date),
         tag: values.tag,
@@ -75,12 +78,10 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
       };
       if (todoItem.title) {
         updateTodoItem(tempTodoItem);
-        //console.log("update", tempTodoItem);
         handleClick({} as ITodoItemProps);
       } else {
         addTodoItem(tempTodoItem);
         handleClick({} as ITodoItemProps);
-        //console.log("add", tempTodoItem);
       }
     },
     validationSchema,
@@ -89,10 +90,7 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
   return (
     <TodoPopUpContainer>
       <TodoPopUpContent>
-        <Header>
-          {title ? "Update Task" : "Add Task"}
-
-        </Header>
+        <Header>{title ? "Update Task" : "Add Task"}</Header>
         <CloseButton onClick={() => handleClick({} as ITodoItemProps)}>
           x
         </CloseButton>
@@ -121,7 +119,9 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
             onChange={handleChange}
             onBlur={handleBlur}
           >
-            <option value="" selected disabled hidden>Choose here</option>
+            <option value="" selected disabled hidden>
+              Choose here
+            </option>
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
@@ -137,27 +137,29 @@ const TodoPopUp: React.FC<ITodoItemProps> = ({
           {errors.description && touched.description && (
             <Error message={errors.description} />
           )}
-          
+
           <Label htmlFor="important">
-           <input
-            type="checkbox"
-            name="important"
-            id="important"
-            checked={values.important}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-           Important</Label>
-           <Label htmlFor="completed">
-           <input
-            type="checkbox"
-            name="completed"
-            id="completed"
-            checked={values.completed}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-           Completed</Label>
+            <input
+              type="checkbox"
+              name="important"
+              id="important"
+              checked={values.important}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            Important
+          </Label>
+          <Label htmlFor="completed">
+            <input
+              type="checkbox"
+              name="completed"
+              id="completed"
+              checked={values.completed}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            Completed
+          </Label>
           <Button type="submit">{title ? "Update" : "Add"}</Button>
           {title ? (
             <></>

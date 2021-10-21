@@ -1,52 +1,6 @@
 import { createContext, useState, useContext, FC } from "react";
 import { ITodoItemContext, ITodoItemProps } from "../types";
-
-const defaultTodoItems = [
-  {
-    id: 1,
-    title: "Todo Item1",
-    date: new Date(),
-    tag: "Low",
-    description: "First todo item content",
-    important: false,
-    completed: false,
-    deleted: false,
-  },
-  {
-    id: 2,
-    title: "Todo Item2",
-    date: new Date(),
-    tag: "Low",
-    description: "Second todo item content",
-    important: false,
-    completed: false,
-    deleted: false,
-  },
-  {
-    id: 3,
-    title: "Todo Item3",
-    date: new Date(),
-    tag: "Medium",
-    description: "Second todo item content",
-    important: false,
-    completed: false,
-    deleted: false,
-  },
-];
-const defaultTodoItemContext = {
-  todoItems: defaultTodoItems,
-};
-
-const defaultTodoItem: ITodoItemProps = {
-  id: 33,
-  title: "",
-  date: new Date(),
-  tag: "",
-  description: "",
-  important: false,
-  completed: false,
-  deleted: false,
-};
+import { defaultTodoItemContext, defaultTodoItem } from "../constants";
 
 const TodoItemContext = createContext<ITodoItemContext>({} as ITodoItemContext);
 
@@ -58,40 +12,38 @@ export const TodoItemProvider: FC = ({ children }) => {
     defaultTodoItemContext.todoItems
   );
   const [todoItem, setTodoItem] = useState<ITodoItemProps>(defaultTodoItem);
+
+  // Added to new to-do list
   const addTodoItem = (todoItem: ITodoItemProps) => {
     setTodoItems([...todoItems, todoItem]);
   };
+
+  //Todo update is done.
   const updateTodoItem = (todoItem: ITodoItemProps) => {
     const index = todoItems.findIndex((t) => t.id === todoItem.id);
     todoItems[index] = todoItem;
     setTodoItems(todoItems);
   };
-  //   const getSelectedTodoItems = (selectedFeature: string) => {
-  //     var tempArray: ITodoItemProps[] = todoItems;
-  //     if (selectedFeature === "completed") {
-  //       tempArray = todoItems.filter((todoItem) => todoItem.completed);
-  //     } else if (selectedFeature === "deleted") {
-  //       tempArray = todoItems.filter((todoItem) => todoItem.deleted);
-  //     } else if (selectedFeature === "important") {
-  //       tempArray = todoItems.filter((todoItem) => todoItem.important);
-  //     } else if (selectedFeature === "active") {
-  //       tempArray = todoItems.filter((todoItem) => !todoItem.completed);
-  //     } else if (selectedFeature === "Low") {
-  //       tempArray = todoItems.filter((todoItem) => todoItem.tag === "Low");
-  //     } else if (selectedFeature === "Medium") {
-  //       tempArray = todoItems.filter((todoItem) => todoItem.tag === "Medium");
-  //     } else if (selectedFeature === "High") {
-  //       tempArray = todoItems.filter((todoItem) => todoItem.tag === "High");
-  //     }
-  //     setSelectedTodoItems(tempArray);
-  //   };
+
+  //Changing the delete property is done.
+  const handleDelete = (todo: ITodoItemProps) => {
+    todoItems.map((t) => (t.id === todo.id ? (t.deleted = !todo.deleted) : ""));
+    setTodoItems(todoItems);
+    getTodoItems();
+  };
+
+
+  //All todos are fetched except todos that are not deleted
   const getTodoItems = () => {
     var tempArray = todoItems.filter((todoItem) => !todoItem.deleted);
     setSelectedTodoItems(tempArray);
   };
 
+  //The todo list with the desired feature is displayed.
   const completedTodoItems = () => {
-    var tempArray = todoItems.filter((todoItem) => todoItem.completed  && !todoItem.deleted);
+    var tempArray = todoItems.filter(
+      (todoItem) => todoItem.completed && !todoItem.deleted
+    );
     setSelectedTodoItems(tempArray);
   };
   const deletedTodoItems = () => {
@@ -99,7 +51,9 @@ export const TodoItemProvider: FC = ({ children }) => {
     setSelectedTodoItems(tempArray);
   };
   const importantTodoItems = () => {
-    var tempArray = todoItems.filter((todoItem) => todoItem.important && !todoItem.deleted);
+    var tempArray = todoItems.filter(
+      (todoItem) => todoItem.important && !todoItem.deleted
+    );
     setSelectedTodoItems(tempArray);
   };
   const activeTodoItems = () => {
@@ -108,6 +62,8 @@ export const TodoItemProvider: FC = ({ children }) => {
     );
     setSelectedTodoItems(tempArray);
   };
+
+  // Tag selection functions
   const lowTagTodoItems = () => {
     var tempArray = todoItems.filter((todoItem) => todoItem.tag === "Low");
     setSelectedTodoItems(tempArray);
@@ -121,16 +77,7 @@ export const TodoItemProvider: FC = ({ children }) => {
     setSelectedTodoItems(tempArray);
   };
 
-  const handleDelete =(todo: ITodoItemProps) => {
-    console.log("important before", todo);
-    todoItems.map((t) =>
-      t.id === todo.id ? (t.deleted = !todo.deleted) : ""
-    );
-    console.log("important after", todoItems);
-    setTodoItems(todoItems);
-    getTodoItems();
-  }
-
+  
   const values = {
     todoItems,
     addTodoItem,

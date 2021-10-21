@@ -1,5 +1,5 @@
 import { DefaultTheme } from "styled-components";
-import { FormikErrors } from 'formik';
+import { FormikErrors } from "formik";
 
 export interface ITodoItemProps {
   id: number;
@@ -22,19 +22,25 @@ export interface ITodoItemContext {
   selectedTodoItems: ITodoItemProps[];
   addTodoItem: (todo: ITodoItemProps) => void;
   updateTodoItem: (todo: ITodoItemProps) => void;
-  // getSelectedTodoItems:(selected:string)  => void ;
+  handleDelete: (todo: ITodoItemProps) => void;
+
+  //to list todos by desired attribute
   getTodoItems: () => void;
   completedTodoItems: () => void;
   deletedTodoItems: () => void;
   importantTodoItems: () => void;
   activeTodoItems: () => void;
+  
+  //Functions required for tags
   lowTagTodoItems: () => void;
   mediumTagTodoItems: () => void;
   highTagTodoItems: () => void;
+
+  //todoItem is used for Popup update and add actions
   todoItem: ITodoItemProps;
   setTodoItem: React.Dispatch<React.SetStateAction<ITodoItemProps>>;
-  handleDelete: (todo: ITodoItemProps) => void;
 }
+
 export interface IButtonProps {
   text: string;
   icon: JSX.Element | JSX.IntrinsicElements | any;
@@ -55,6 +61,6 @@ export interface IImportedButtonProps {
   important: boolean;
 }
 
-export interface IErrorProps{
-  message:string | FormikErrors<Date>;
+export interface IErrorProps {
+  message: string | FormikErrors<Date>;
 }
