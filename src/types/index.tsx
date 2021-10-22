@@ -56,10 +56,6 @@ export interface ITagsProps {
   theme: DefaultTheme;
   colorTag: string;
 }
-export interface IImportedButtonProps {
-  theme: DefaultTheme;
-  important: boolean;
-}
 
 export interface IErrorProps {
   message: string | FormikErrors<Date>;

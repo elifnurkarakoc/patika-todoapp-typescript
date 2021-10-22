@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Button } from "./AddNewButton.styled";
 import { usePopUp } from "../../contexts/PopUpContext";
 import { ITodoItemProps } from "../../types/index";
-interface IButtonProps {
-  handleClick: () => void;
-}
+
 const AddNewButton: React.FC = () => {
-  const { isOpen, handleClick } = usePopUp();
+  const { handleClick } = usePopUp();
 
   return (
     <Button onClick={() => handleClick({} as ITodoItemProps)}>

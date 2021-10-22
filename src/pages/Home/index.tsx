@@ -3,9 +3,9 @@ import Content from "../../layouts/Content";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Content />
-    </div>
+    </>
   );
 };
 

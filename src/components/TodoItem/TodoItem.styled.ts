@@ -5,7 +5,7 @@ export const Card = styled.div<IStyledProps>`
   background-color:${({ theme }) => theme.colors.white};
   color:${({ theme }) => theme.colors.secondary};
   border-bottom:1px solid ${({ theme }) => theme.colors.border};
- `;
+`;
 
 export const CardContent = styled.div<IStyledProps>`
   display: block;
@@ -13,37 +13,20 @@ export const CardContent = styled.div<IStyledProps>`
   padding-left: 15px;
   margin-bottom: 12px;
   font-size: 22px;
-  /* -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; */
   display: flex;
   justify-content: space-between;
 `;
 
-// export const CheckBox = styled.input <IStyledProps>`
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   height: 15px;
-//   width: 15px;
-//   color: ${({ theme }) => theme.colors.primary};
-//   &:hover {
-//     color: ${({ theme }) => theme.colors.primary};
-//   }
-//  `;
-
 
 export const TodoText = styled.p<IStyledProps>`
-font-size:16px;
-color:${({ theme }) => theme.colors.secondary};
-&:hover {
-  color: ${({ theme }) => theme.colors.primary};
-}
+  font-size:16px;
+  color:${({ theme }) => theme.colors.secondary};
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 export const Tags = styled.button<ITagsProps>`
-    /* display: inline-block; */
     color: ${({ theme }) => theme.colors.border};
     background-color:${({ theme }) => theme.colors.primary};
     margin-right:8px;

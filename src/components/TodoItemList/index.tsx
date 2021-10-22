@@ -11,7 +11,6 @@ const TodoItemList: React.FC = () => {
   useEffect(() => {
     getTodoItems();
     console.log({selectedTodoItems})
-    //console.log("update")
   }, [todoItems,isOpen]);
   return (
     <TodoItemListContainer>

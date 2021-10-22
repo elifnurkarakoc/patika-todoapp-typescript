@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { IStyledProps, IImportedButtonProps } from "../../types";
+import styled from "styled-components";
+import { IStyledProps } from "../../types";
 
 
 export const TodoPopUpContainer = styled.div<IStyledProps>`
@@ -105,7 +105,6 @@ margin-top: 3px;
 margin-left:50px;
 font-size: 24px;
 font-weight: bold;
-/* background-color:${({ theme }) => theme.colors.white}; */
 border:none;
 &:hover {
     color:${({ theme }) => theme.colors.purple};
