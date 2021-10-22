@@ -1,10 +1,14 @@
-import { HeaderContainer } from "./layouts.styled";
-
+import { Profile,ProfileText,HeaderContainer, HeaderText, ProfileImg } from "./layouts.styled";
+import profilePhoto from "../assets/profile.jpg";
 const Header = () => {
   return (
-    <>
-      <HeaderContainer>Todo App</HeaderContainer>
-    </>
+    <HeaderContainer>
+      <HeaderText>Todo App</HeaderText>
+      <Profile>
+        <ProfileText>elifnurkarakoc</ProfileText>
+        <ProfileImg src={profilePhoto} alt="profile" />
+      </Profile>
+    </HeaderContainer>
   );
 };
 
