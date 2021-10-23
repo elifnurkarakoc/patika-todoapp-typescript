@@ -1,3 +1,8 @@
+# :construction: IN PROGRESS
+
+
+
+
 <p align="center">
     <h3 align="center">Todo App with TypeScript, ReactJS, Formik & Styled-Component</h3>
     <br />
