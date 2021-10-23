@@ -64,6 +64,7 @@ margin:5px;
 height:80px;
 font-size:18px;
 margin-bottom:10px;
+color:${({ theme }) => theme.colors.secondary};
 border: 2px solid ${({ theme }) => theme.colors.secondary};
 border-radius: 4px;
 `;
