@@ -14,14 +14,16 @@ import { ITodoItemProps } from "../../types";
 import { usePopUp } from "../../contexts/PopUpContext";
 import { useTodoItem } from "../../contexts/TodoItemContext";
 import {
+  ActiveIcon,
   CompletedIcon,
   DeletedIcon,
   EditIcon,
   ImportantIcon,
 } from "../../icons/icons";
+
 const TodoItem: React.FC<ITodoItemProps> = (todo: ITodoItemProps) => {
  // console.log(todo.title);
-  const { isOpen, handleClick } = usePopUp();
+  const { handleClick } = usePopUp();
   const {
     handleDelete,
   } = useTodoItem();
@@ -34,6 +36,7 @@ const TodoItem: React.FC<ITodoItemProps> = (todo: ITodoItemProps) => {
             {" "}
             {todo.title} {todo.completed && <CompletedIcon />}{" "}
             {todo.important && <ImportantIcon />}{" "}
+            {!todo.completed && <ActiveIcon />}{" "}
             {todo.deleted && <DeletedIcon />}{" "}
           </TodoText>
           <Date>{todo.date.toDateString()}</Date>
