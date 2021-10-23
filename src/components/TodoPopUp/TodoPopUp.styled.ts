@@ -48,13 +48,15 @@ margin:5px;
 height:40px;
 font-size:18px;
 margin-bottom: 10px;
+color:${({ theme }) => theme.colors.secondary};
+border: 2px solid ${({ theme }) => theme.colors.secondary};
+border-radius: 4px;
 `;
-export const Label =styled.label<IStyledProps>`
-padding:2px;
-margin:5px;
-height:40px;
+export const Label = styled.label<IStyledProps>`
+padding:3px;
+height:20px;
 font-size:18px;
-margin-bottom: 10px;
+margin-bottom: 15px;
 `;
 export const TextArea = styled.textarea<IStyledProps>`
 padding:5px;
@@ -62,12 +64,17 @@ margin:5px;
 height:80px;
 font-size:18px;
 margin-bottom:10px;
+border: 2px solid ${({ theme }) => theme.colors.secondary};
+border-radius: 4px;
 `;
 
 export const Select = styled.select<IStyledProps>`
 padding:5px;
 margin:5px;
 font-size:18px;
+color:${({ theme }) => theme.colors.secondary};
+border: 2px solid ${({ theme }) => theme.colors.secondary};
+border-radius: 4px;
 `;
 
 export const Form = styled.form<IStyledProps>`
