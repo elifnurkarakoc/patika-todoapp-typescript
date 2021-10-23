@@ -1,5 +1,0 @@
-npm install --save @types/react-router-dom react-router-dom
-
-npm install @types/styled-components styled-components
-
-npm install formik yup @types/yup
